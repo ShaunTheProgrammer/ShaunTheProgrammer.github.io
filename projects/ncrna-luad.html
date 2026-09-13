@@ -1,0 +1,644 @@
+<title>Ranking lncRNA and miRNA drug targets in lung adenocarcinoma — Shaun Deshpande</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<header class="masthead">
+  <div class="masthead__inner-wrap">
+    <a class="site-title" href="../index.html">Shaun Deshpande</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li class="masthead__menu-item"><a href="../index.html">CV</a></li>
+        <li class="masthead__menu-item selected"><a href="../projects.html">Projects</a></li>
+        <li class="masthead__menu-item"><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="main">
+  <div class="wrap" style="max-width:none; padding:0;">
+
+    <aside class="sidebar">
+      <img class="author__avatar" src="../assets/profile.jpg" alt="Shaun Deshpande" />
+      <h3 class="author__name">Shaun Deshpande</h3>
+      <p class="author__meta">Associate Product Manager<br />Mumbai, India</p>
+      <p class="author__bio">
+        Product manager shipping large-scale platforms &mdash; a UAE
+        ministry's scholarships system at Whiteshield, and AI-native
+        hospitality products (conversational booking, RAG) before that at
+        Kotozna.
+      </p>
+      <ul class="author__urls">
+        <li><span class="icon">&#9993;</span> <a href="mailto:shaunchinardeshpande@gmail.com">shaunchinardeshpande@gmail.com</a></li>
+        <li><span class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span> <a href="https://github.com/ShaunTheProgrammer" target="_blank" rel="noopener">GitHub</a></li>
+        <li><span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span> <a href="https://www.linkedin.com/in/shaun-deshpande" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </aside>
+
+    <div class="page">
+      <div class="page__inner-wrap">
+        <header>
+          <p class="archive__item-meta" style="margin-bottom:0.4em;"><a href="../projects.html">&larr; All projects</a></p>
+          <h1 class="page__title">Ranking lncRNA and miRNA drug targets in lung adenocarcinoma</h1>
+          <p class="page__meta">Machine Learning &middot; Computational Biology &middot; TCGA-LUAD &middot; completed</p>
+          <ul class="tag-list">
+            <li>Positive-Unlabeled Learning</li>
+            <li>Graph Embeddings (node2vec)</li>
+            <li>Survival Analysis</li>
+            <li>ceRNA Networks</li>
+            <li>Bioinformatics</li>
+          </ul>
+        </header>
+        <section class="page__content">
+
+          <p class="page__lead">
+            TCGA-LUAD carries expression and clinical data for roughly 17,000
+            candidate lncRNAs and 1,900 miRNAs. A handful drive real cancer
+            biology &mdash; often by acting as competing endogenous RNAs
+            (ceRNAs), sponging a shared miRNA to de-repress its other
+            targets; most don't. This pipeline tests that ceRNA hypothesis
+            computationally at scale: it ranks the full candidate pool by
+            combining four independent evidence streams, then checks at
+            every step whether the ranking is actually predicting anything
+            or just replaying its own training labels back at us.
+          </p>
+
+          <p>
+            Code: <a href="https://github.com/ShaunTheProgrammer/ncrna-luad" target="_blank" rel="noopener">github.com/ShaunTheProgrammer/ncrna-luad</a>
+          </p>
+
+          <h2>Background</h2>
+          <p>
+            Lung adenocarcinoma (LUAD) is the most common subtype of
+            non-small-cell lung cancer. Most existing targeted therapies act
+            on protein-coding driver genes (EGFR, KRAS, ALK); long
+            non-coding RNAs (lncRNAs) and microRNAs (miRNAs) are
+            comparatively unexplored as targets, despite two properties that
+            make them attractive candidates: their expression tends to be
+            more tissue- and cancer-type-specific than most protein-coding
+            genes, which matters for therapeutic selectivity, and they are
+            directly addressable with antisense oligonucleotides (ASOs) or
+            siRNAs &mdash; a route that doesn't require the binding pocket a
+            small-molecule inhibitor needs.
+          </p>
+
+          <h2>Goals</h2>
+          <p>This project has three concrete aims:</p>
+          <ol>
+            <li><strong>Produce a ranked, LUAD-specific shortlist</strong> of
+              candidate lncRNAs and miRNAs credible enough to justify
+              experimental follow-up &mdash; not a list of anything merely
+              correlated with lung cancer in general.</li>
+            <li><strong>Test whether combining independent evidence streams
+              outperforms any single stream</strong>, and quantify that
+              improvement rather than assert it.</li>
+            <li><strong>Guard against the specific ways this kind of pipeline
+              usually fools itself</strong> &mdash; label leakage, circular
+              features, pan-cancer signal passed off as LUAD-specific, and
+              statistical artifacts from highly-connected network hubs
+              &mdash; and report plainly which claims survive that scrutiny
+              and which don't.</li>
+          </ol>
+
+          <h2>Dataset</h2>
+          <p>
+            All clinical and expression evidence comes from TCGA-LUAD
+            &mdash; The Cancer Genome Atlas's lung adenocarcinoma cohort,
+            the largest public, uniformly processed genomic and clinical
+            resource for this cancer type: STAR-aligned RNA-seq (60,660
+            genes &times; 589 samples), matched miRNA-seq, and
+            clinical/survival annotation. After reconciling sample identity
+            and data completeness across all four raw sources (RNA-seq
+            counts, RNA-seq TPM, miRNA-seq, clinical/survival), the aligned
+            cohort used for differential expression and survival is 522
+            samples &mdash; 502 tumor, 20 matched normal. The
+            lncRNA&ndash;miRNA&ndash;mRNA interaction evidence used below
+            (ceRNA and CLIP-seq binding data) comes from external
+            interaction databases (ENCORI/starBase, miRTarBase), not from
+            TCGA itself.
+          </p>
+
+          <h2>Exploratory data analysis</h2>
+          <p>
+            Before any modeling, the aligned cohort was checked directly
+            rather than assumed: how much data actually survives
+            reconciliation across the four raw sources, whether tumor and
+            normal samples are balanced enough for differential expression,
+            and whether a per-gene survival association is even feasible at
+            this sample size before running it at scale.
+          </p>
+
+          <figure class="figure">
+            <img src="../assets/eda/eda_overview.png" alt="Six-panel EDA overview of the TCGA-LUAD cohort: samples per source vs. aligned cohort, aligned cohort by group, genes detected per sample, log2(TPM+1) distribution, follow-up time by censoring status, and sparsity by biotype." />
+            <figcaption>Fig. A &mdash; Cohort EDA run ahead of Phase 3. Raw sample counts per source
+              (589&ndash;721) reconcile down to the 522-sample aligned cohort (502 tumor / 20 normal, top
+              center). lncRNAs are detected in far fewer samples and are far sparser than mRNAs (top
+              right, bottom left, bottom right) &mdash; the reason lncRNA and mRNA are handled with
+              separate detection floors downstream. Follow-up time is heavily right-skewed with 180
+              events against 318 censored patients (bottom center), which is why survival association
+              uses a concordance index rather than a metric that assumes complete follow-up.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="../assets/eda/survival_cox_demo_MKI67.png" alt="Kaplan-Meier survival curves for TCGA-LUAD patients split by high vs. low expression of MKI67, log-rank p = 0.0108." />
+            <figcaption>Fig. B &mdash; Survival-association method, demonstrated on MKI67 (a standard
+              proliferation marker, not a project candidate) before being run genome-wide: splitting the
+              522-sample cohort at the median into MKI67-high (n=251) and MKI67-low (n=252) separates the
+              two Kaplan&ndash;Meier curves at log-rank p = 0.0108, confirming the pipeline recovers a
+              textbook prognostic association before trusting it on genes without a known answer.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="../assets/eda/survival_screen_lncRNA_cindex.png" alt="Histogram of per-gene concordance index from the lncRNA survival screen, n=10,305 clean fits, centered near 0.5." />
+            <figcaption>Fig. C &mdash; Per-gene concordance index across the full lncRNA survival screen
+              (10,305 clean Cox fits). The distribution centers almost exactly on 0.5 &mdash; no better
+              than chance &mdash; which is the expected shape when most genes carry no survival signal;
+              candidates are the genes in the tails, not the bulk of the histogram.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="../assets/eda/survival_screen_miRNA_cindex.png" alt="Histogram of per-gene concordance index from the miRNA survival screen, n=871 clean fits, centered near 0.5." />
+            <figcaption>Fig. D &mdash; The same screen repeated for miRNA (871 clean fits). Same
+              chance-centered shape, smaller universe &mdash; consistent with miRNA's smaller candidate
+              pool (1,881 vs. 16,901 lncRNA).</figcaption>
+          </figure>
+
+          <h2>Methodology</h2>
+          <p>
+            Four independent evidence streams feed a single composite score
+            per candidate:
+          </p>
+          <ol>
+            <li><strong>Clinical signal</strong> &mdash; differential
+              expression and Cox survival association, computed directly
+              from TCGA-LUAD.</li>
+            <li><strong>Association evidence</strong> &mdash; a
+              positive-unlabeled (PU) classifier trained against curated
+              cancer-ncRNA labels (Lnc2Cancer, HMDD).</li>
+            <li><strong>Mechanism evidence</strong> &mdash; a
+              ceRNA/co-expression network layer, built around the
+              <strong>competing endogenous RNA (ceRNA) hypothesis</strong>:
+              a transcript that shares microRNA response elements (MREs)
+              with a target mRNA can act as a molecular "sponge,"
+              competitively binding the shared miRNA and de-repressing
+              &mdash; increasing the expression of &mdash; that miRNA's
+              other targets. Under this model, a lncRNA can indirectly
+              promote or suppress a cancer phenotype by soaking up a
+              miRNA that would otherwise silence an oncogene or tumor
+              suppressor, without ever binding DNA or protein itself.
+              This stream looks for candidate lncRNA&ndash;miRNA&ndash;mRNA
+              triplets where shared-miRNA binding evidence and expression
+              co-variation line up.</li>
+            <li><strong>LUAD-relevance gate</strong> &mdash; an explicit
+              filter that removes candidates whose signal is pan-lung or
+              pan-cancer rather than LUAD-specific.</li>
+          </ol>
+          <p>
+            Each of these is individually weak, or fools itself in a known
+            way: differential expression finds bystander correlates of
+            tumor state as readily as drivers; literature-curated labels
+            are frequently pan-cancer rather than LUAD-specific, and are
+            themselves incomplete; a ceRNA relationship can be asserted for
+            almost any well-connected lncRNA if the statistics aren't
+            corrected for neighborhood size (see the hub-lncRNA saturation
+            issue below). The goal isn't to trust any single stream, but to
+            find candidates supported by <em>independent</em>, converging
+            evidence &mdash; and to keep testing whether that convergence
+            is real signal or an artifact of how the pipeline itself was
+            built (see <a href="#decisions">A few decisions that shaped the
+            result</a>, below). The output is a confidence-tiered shortlist
+            &mdash; not a single p-value cutoff &mdash; because the streams
+            disagree about different candidates for different reasons, and
+            collapsing that disagreement into one number would hide it.
+          </p>
+
+          <h3>Association-model features: Tier 1 vs. Tier 2</h3>
+          <p>
+            The PU-learning association model (stream 2) is trained on two
+            feature tiers &mdash; a different, unrelated use of the word
+            "tier" from the <em>confidence</em> tiers the shortlist gate
+            assigns later; the project keeps both names on purpose rather
+            than inventing a third term, so it's worth being explicit here.
+            Tier 1 features are intrinsic to the gene: computable from its
+            sequence and genomic coordinates alone, independent of
+            TCGA-LUAD, and leakage-safe by construction. Tier 2 features are
+            derived from this project's own TCGA-LUAD cohort &mdash; real
+            predictive power, but the reason the temporal-split validation
+            above and the dbDEMC decision below both exist.
+          </p>
+          <div class="table-wrap">
+            <table class="stats-table">
+              <tr><th>Tier 1<br />(intrinsic, leakage-safe)</th><td>Transcript length (median, max) &middot; exon count (median, max) <em>[lncRNA only]</em> &middot; isoform count <em>[lncRNA only]</em> &middot; genomic span &middot; strand &middot; overlaps a protein-coding gene, sense or antisense &middot; distance to the nearest protein-coding gene</td></tr>
+              <tr><th>Tier 2<br />(TCGA-LUAD-derived)</th><td>DE log2 fold-change &middot; DE adjusted p-value &middot; DE-hit flag &middot; survival hazard ratio &middot; survival concordance index &middot; survival adjusted p-value (q) &middot; mean expression &middot; detection rate &middot; expression dispersion</td></tr>
+            </table>
+          </div>
+          <p>
+            Both tiers are computed once per candidate and reused for both
+            the leakage-safe (<code>pu_tier1_only_score</code>) and full
+            (<code>pu_full_score</code>) versions of the association score
+            reported in every dossier &mdash; the two are never collapsed
+            into one undifferentiated number.
+          </p>
+
+          <h3>The LUAD-relevance gate, precisely</h3>
+          <p>
+            Phase 4's association labels span LUAD, LUSC, NSCLC, SCLC, and
+            "lung cancer" generically &mdash; a lung-broad positive set,
+            needed because LUAD-only labels were too sparse to train on by
+            themselves. That means association evidence alone can't tell
+            LUAD-specific biology apart from pan-lung biology. The gate is
+            what makes that distinction explicit: a candidate reaches
+            confidence tier 1 (the only tier eligible for the shortlist)
+            only if it clears at least one of three criteria, checked
+            directly against the TCGA-LUAD cohort itself &mdash; lung-broad
+            association status by itself is not enough:
+          </p>
+          <ol>
+            <li>a significant differential-expression hit (tumor vs. normal,
+              in TCGA-LUAD)</li>
+            <li>a significant Cox survival association (in TCGA-LUAD)</li>
+            <li>membership in the intersection of both from the Phase 3
+              DE-and-survival screen</li>
+          </ol>
+          <p>
+            This is the literal "train broad, rank narrow" design: broad
+            labels make the association model trainable at all, but nothing
+            reaches the top of the final ranking on lung-broad credit alone
+            &mdash; it has to show its own LUAD-specific signal.
+          </p>
+
+          <div class="table-wrap">
+            <table class="stats-table">
+              <tr><th>Candidates scored</th><td>16,901 lncRNA &middot; 1,881 miRNA</td></tr>
+              <tr><th>Tier-1 shortlist</th><td>20 lncRNA &middot; 20 miRNA</td></tr>
+              <tr><th>PU-learning positives</th><td>lncRNA: 100 strict-LUAD / 271 lung-broad (Lnc2Cancer) &middot; miRNA: 96 strict-LUAD / 365 lung-broad (HMDD, causal-evidence codes only)</td></tr>
+              <tr><th>Literature enrichment</th><td>lncRNA OR = 35.1, p = 8.0×10&#8315;&sup1;&sup3; &middot; miRNA OR = 30.2, p = 2.1×10&#8315;&#8311;</td></tr>
+              <tr><th>Temporal validation</th><td>lncRNA AP signal 13.4× noise &middot; miRNA AP signal 25.0× noise</td></tr>
+            </table>
+          </div>
+
+          <h2>Pipeline phases</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>Differential expression &amp; survival</h3>
+              <p class="meta">Phase 3</p>
+              <p>Tumor-vs-normal DE (pydeseq2) and Cox survival association
+                from TCGA-LUAD RNA-seq and phenotype data. These features are
+                quarantined from the label set in every later phase, so the
+                model can't be evaluated against a label that's really just a
+                restatement of one of its own inputs.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Positive-unlabeled association model</h3>
+              <p class="meta">Phase 4</p>
+              <p>PU-bagging over an Elkan&ndash;Noto classifier, trained on
+                curated cancer-ncRNA labels (Lnc2Cancer for lncRNA, HMDD for
+                miRNA), with a Tier-1/Tier-2 feature split separating
+                intrinsic sequence/genomic features from network-derived
+                ones.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Heterogeneous network &amp; mechanism layer</h3>
+              <p class="meta">Phase 5</p>
+              <p>A lncRNA&ndash;miRNA&ndash;mRNA edge set built from CLIP-seq
+                and miRTarBase evidence, feeding per-lncRNA ceRNA/co-expression
+                mechanism dossiers and node2vec embeddings.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Shortlist integration</h3>
+              <p class="meta">Phase 6</p>
+              <p>A tier-gated composite score plus the LUAD-relevance gate
+                produces the ranked shortlist, extended to full lncRNA/miRNA
+                parity including temporal-split validation for both.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Retrospective validation &amp; flagship proposal</h3>
+              <p class="meta">Phase 7</p>
+              <p>Systematic literature search on the label-unsupervised top
+                candidates, and a flagship candidate (MIR9-1HG) proposed for
+                experimental follow-up.</p>
+            </div>
+          </div>
+
+          <h2>Results</h2>
+
+          <h3 style="margin-top:1.4em;">Outcomes against the three goals</h3>
+          <ol>
+            <li><strong>A ranked, LUAD-specific shortlist &mdash; delivered.</strong>
+              20 lncRNA and 20 miRNA candidates, every one past the
+              LUAD-relevance gate and sitting in confidence tier 1. 19/20
+              lncRNA and 7/20 miRNA candidates clear all three independent
+              evidence streams; the rest clear at least two. None of this
+              list is a single-signal artifact.</li>
+            <li><strong>Combining streams beats any single stream, quantified.</strong>
+              Both shortlists carry a 30&ndash;35&times; enrichment for
+              prior cancer literature over their respective candidate pools
+              (Fig. 2). The association stream's advantage over an
+              intrinsic-feature-only baseline survives temporal validation
+              at the AP level for both modalities (13.4&times;/25.0&times;
+              noise, Fig. 3); the top-k recall-level advantage survives for
+              miRNA but not lncRNA, so that stronger claim is scoped to
+              miRNA only. Perturbing every composite weight by &plusmn;20%
+              independently, plus 20 random joint perturbations, never drops
+              the shortlist's overlap with the baseline below a Jaccard
+              index of 0.905 &mdash; the ranking is not an artifact of the
+              specific hand-chosen weights.</li>
+            <li><strong>Guard against known failure modes, report plainly &mdash; done.</strong>
+              Caught and fixed: a circular miRNA label source (dbDEMC),
+              a shared CLIP-evidence floor that was silently starving the
+              lncRNA network layer, and a hub-lncRNA neighborhood-size
+              artifact in pathway enrichment. Caught and disclosed rather
+              than smoothed over: the lncRNA recall-level claim above,
+              the exact top-20 membership's sensitivity to which positive
+              set trains the association model (20% top-20 overlap under a
+              strict-LUAD-only retrain, despite genome-wide rho = 0.84), and
+              the MIR9-1HG case below, where a defensible exclusion rule
+              turned out to have cut the wrong way.</li>
+          </ol>
+
+          <h3>The shortlist is not just replaying its training labels</h3>
+          <p>
+            8 of the 20 lncRNA candidates and 18 of the 20 miRNA candidates
+            were PU-learning training positives &mdash; genes the model
+            already knew were cancer-associated before it ranked anything.
+            The real test is the other 12 lncRNA and 2 miRNA: candidates the
+            model ranked highly with no label to go on. A systematic
+            literature search found independent support for 9 of the 12
+            lncRNA and both miRNA &mdash; real biology the label set had
+            simply missed. The remaining 3 lncRNA candidates
+            (<code>PACRG-AS3</code>, <code>MIR9-1HG</code>,
+            <code>AC133785.1</code>) have no functional cancer study on
+            record anywhere: they're the pipeline's novel, unlabeled
+            predictions.
+          </p>
+
+          <figure class="figure">
+            <svg viewBox="0 0 600 150" role="img" aria-labelledby="fig1title fig1desc">
+              <title id="fig1title">Shortlist composition by evidence status</title>
+              <desc id="fig1desc">lncRNA: 8 training positives, 9 recovered-known, 3 novel. miRNA: 18 training positives, 2 recovered-known, 0 novel.</desc>
+              <text x="8" y="34" font-size="13" font-weight="600" fill="#2b2b2f" font-family="-apple-system,Segoe UI,sans-serif">lncRNA</text>
+              <text x="8" y="49" font-size="11" fill="#6e7175" font-family="-apple-system,Segoe UI,sans-serif">n = 20</text>
+              <rect x="90" y="20" width="200" height="30" rx="3" fill="#5b4fe8"/>
+              <text x="190" y="39" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">8</text>
+              <rect x="292" y="20" width="225" height="30" rx="3" fill="#7669e9"/>
+              <text x="404" y="39" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">9</text>
+              <rect x="519" y="20" width="75" height="30" rx="3" fill="#a89ef0"/>
+              <text x="556" y="39" font-size="14" font-weight="700" fill="#2b2b2f" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">3</text>
+
+              <text x="8" y="104" font-size="13" font-weight="600" fill="#2b2b2f" font-family="-apple-system,Segoe UI,sans-serif">miRNA</text>
+              <text x="8" y="119" font-size="11" fill="#6e7175" font-family="-apple-system,Segoe UI,sans-serif">n = 20</text>
+              <rect x="90" y="90" width="450" height="30" rx="3" fill="#5b4fe8"/>
+              <text x="315" y="109" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">18</text>
+              <rect x="542" y="90" width="50" height="30" rx="3" fill="#7669e9"/>
+              <text x="567" y="109" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">2</text>
+            </svg>
+            <div class="chart-legend">
+              <span><i style="background:#5b4fe8;"></i>Training positive (label seen)</span>
+              <span><i style="background:#7669e9;"></i>Recovered known (unseen, literature-confirmed)</span>
+              <span><i style="background:#a89ef0;"></i>Novel (unseen, no study found)</span>
+            </div>
+            <figcaption>Fig. 1 &mdash; Composition of both shortlists by evidence status. Counts from
+              <code>data/processed/shortlist_top20.tsv</code> /
+              <code>mirna_shortlist_top20.tsv</code> (training-positive flag) cross-referenced against
+              the literature search in <code>docs/phase7_validation_report.md</code>.</figcaption>
+          </figure>
+
+          <h4 style="margin-top:1.6em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif; font-size: 1em;">Full shortlist &mdash; lncRNA (20)</h4>
+          <p>
+            Status follows the split above: training positive (known by
+            construction), recovered known (unlabeled but literature-confirmed),
+            or novel (unlabeled, no study found). Mechanism and supporting
+            evidence are reported per gene, not as a separate category.
+          </p>
+          <div class="table-wrap">
+            <table class="stats-table">
+              <tr><th>Rank</th><th>Gene</th><th>Status</th><th>Mechanism &amp; evidence</th></tr>
+              <tr><td>1</td><td>PACRG-AS3</td><td>Novel</td><td>No mechanism stream (outside dossier scope); no dedicated study found in any cancer type.</td></tr>
+              <tr><td>2</td><td>FAM83A-AS1</td><td>Training positive</td><td>Co-expression mechanism; LUAD HIF-1&alpha;/glycolysis axis independently reported (2022).</td></tr>
+              <tr><td>3</td><td>Z98257.1</td><td>Recovered known</td><td>Co-expression mechanism; ovarian-cancer prognostic panel, no LUAD-specific study.</td></tr>
+              <tr><td>4</td><td>MIR9-1HG</td><td>Novel</td><td>ceRNA mechanism; no study on the transcript itself &mdash; see the flagship case below.</td></tr>
+              <tr><td>5</td><td>LINC01559</td><td>Recovered known</td><td>Co-expression mechanism; direct LUAD metastasis mechanism reported (2024).</td></tr>
+              <tr><td>6</td><td>AC133785.1</td><td>Novel</td><td>Co-expression mechanism; no study found under this identifier, any cancer.</td></tr>
+              <tr><td>7</td><td>COLCA1</td><td>Recovered known</td><td>ceRNA mechanism; CRC GWAS susceptibility locus, no LUAD-specific study.</td></tr>
+              <tr><td>8</td><td>UCA1</td><td>Training positive</td><td>ceRNA mechanism; LUAD growth/cisplatin-resistance role independently reported.</td></tr>
+              <tr><td>9</td><td>LINC00887</td><td>Recovered known</td><td>Co-expression mechanism; renal-cell-carcinoma biomarker, no LUAD-specific study.</td></tr>
+              <tr><td>10</td><td>DLX6-AS1</td><td>Training positive</td><td>ceRNA mechanism; upregulated in 60/72 LUAD tumors vs. adjacent normal (2015).</td></tr>
+              <tr><td>11</td><td>FOXD3-AS1</td><td>Training positive</td><td>Co-expression mechanism; LUAD/LUSC/SCLC biomarker study.</td></tr>
+              <tr><td>12</td><td>KCNMB2-AS1</td><td>Training positive</td><td>Co-expression mechanism; miR-374a-3p/ROCK1 axis, up in LUAD+LUSC.</td></tr>
+              <tr><td>13</td><td>AC022784.1</td><td>Recovered known</td><td>Co-expression mechanism; likely LUAD growth/metastasis biomarker (identifier match not fully certain).</td></tr>
+              <tr><td>14</td><td>LINC00460</td><td>Training positive</td><td>Co-expression mechanism; miR-302c-5p/FOXA1 axis drives LUAD growth.</td></tr>
+              <tr><td>15</td><td>SATB2-AS1</td><td>Recovered known</td><td>Co-expression mechanism; tumor-suppressive in CRC, oncogenic in osteosarcoma; no LUAD-specific study.</td></tr>
+              <tr><td>16</td><td>LINC00968</td><td>Training positive</td><td>Co-expression mechanism; LUAD-specific ceRNA papers (miR-9-5p/CPEB3, miR-21-5p/SMAD7).</td></tr>
+              <tr><td>17</td><td>AC245041.2</td><td>Recovered known</td><td>Co-expression mechanism; pancreatic-adenocarcinoma survival association, no LUAD-specific study.</td></tr>
+              <tr><td>18</td><td>LASTR</td><td>Recovered known</td><td>Co-expression mechanism; direct LUAD prognostic biomarker, immune-infiltrate association (2023).</td></tr>
+              <tr><td>19</td><td>TARID</td><td>Training positive</td><td>Co-expression mechanism; demethylates/activates tumor suppressor TCF21.</td></tr>
+              <tr><td>20</td><td>SCAT1</td><td>Recovered known</td><td>Co-expression mechanism; unconfirmed HNSCC panel mention, no LUAD-specific study.</td></tr>
+            </table>
+          </div>
+
+          <h4 style="margin-top:1.6em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif; font-size: 1em;">Full shortlist &mdash; miRNA (20)</h4>
+          <div class="table-wrap">
+            <table class="stats-table">
+              <tr><th>Rank</th><th>Gene</th><th>Status</th><th>Evidence</th></tr>
+              <tr><td>1</td><td>hsa-mir-210</td><td>Training positive</td><td>HIF-1&alpha;/CCL2 axis; independent DFS prognostic factor.</td></tr>
+              <tr><td>2</td><td>hsa-mir-9-1</td><td>Training positive</td><td>SOX7-mediated, adverse features in NSCLC.</td></tr>
+              <tr><td>3</td><td>hsa-mir-9-2</td><td>Training positive</td><td>Same locus family as mir-9-1.</td></tr>
+              <tr><td>4</td><td>hsa-mir-9-3</td><td>Training positive</td><td>Same locus family as mir-9-1.</td></tr>
+              <tr><td>5</td><td>hsa-mir-486-1</td><td>Training positive</td><td>CDK4 repression; tumor-suppressive.</td></tr>
+              <tr><td>6</td><td>hsa-mir-486-2</td><td>Training positive</td><td>Same locus family as mir-486-1.</td></tr>
+              <tr><td>7</td><td>hsa-mir-708</td><td>Recovered known</td><td>Increased in NSCLC, poor survival in never-smoker LUAD (2012).</td></tr>
+              <tr><td>8</td><td>hsa-mir-21</td><td>Training positive</td><td>Textbook oncomiR; PTEN/SOCS1/SOCS6 mechanism.</td></tr>
+              <tr><td>9</td><td>hsa-mir-183</td><td>Training positive</td><td>Oncogenic in LUAD; early-stage diagnostic value.</td></tr>
+              <tr><td>10</td><td>hsa-mir-96</td><td>Training positive</td><td>ARHGAP6 and FHL1 axes.</td></tr>
+              <tr><td>11</td><td>hsa-mir-133a-1</td><td>Training positive</td><td>Tumor-suppressive, matches DOWN direction.</td></tr>
+              <tr><td>12</td><td>hsa-mir-144</td><td>Training positive</td><td>EZH2/IRS1 axis.</td></tr>
+              <tr><td>13</td><td>hsa-mir-182</td><td>Training positive</td><td>Oncogenic in LUAD (a separate, retracted mechanism paper is not relied upon).</td></tr>
+              <tr><td>14</td><td>hsa-mir-135b</td><td>Training positive</td><td>Oncogenic enhancer-switching study (2024); contradicts literature on survival direction.</td></tr>
+              <tr><td>15</td><td>hsa-mir-451a</td><td>Training positive</td><td>Tumor-suppressive in LUSC/NSCLC.</td></tr>
+              <tr><td>16</td><td>hsa-mir-1-1</td><td>Training positive</td><td>miR-1-3p/PRC1, tumor-suppressive specifically in LUAD.</td></tr>
+              <tr><td>17</td><td>hsa-mir-200a</td><td>Training positive</td><td>miR-200/CX3CR1 in the LUAD tumor microenvironment.</td></tr>
+              <tr><td>18</td><td>hsa-mir-1-2</td><td>Training positive</td><td>Same locus family as mir-1-1.</td></tr>
+              <tr><td>19</td><td>hsa-mir-30a</td><td>Recovered known</td><td>2021&ndash;2025 LUAD literature; ECT2/CTHRC1/MYBL2 mechanism follow-ups.</td></tr>
+              <tr><td>20</td><td>hsa-mir-7-1</td><td>Training positive</td><td>NOVA2/metastasis, Pax6; contradicts literature on direction (data show UP, literature predicts DOWN).</td></tr>
+            </table>
+          </div>
+
+          <h3>The shortlist recovers known biology above chance</h3>
+          <p>
+            Across the full 20-candidate shortlists, 65% of lncRNA candidates
+            and 95% of miRNA candidates carry prior cancer annotation,
+            against 5.1% and 39.2% baseline rates in the full candidate
+            pools. Training positives account for part of that gap by
+            construction; the per-gene tables above are what let you see
+            exactly how much.
+          </p>
+
+          <figure class="figure">
+            <svg viewBox="0 0 380 220" role="img" aria-labelledby="fig2title fig2desc">
+              <title id="fig2title">Literature-annotation rate, shortlist vs. full candidate pool</title>
+              <desc id="fig2desc">lncRNA shortlist 65% vs pool 5.1%. miRNA shortlist 95% vs pool 39.2%.</desc>
+              <line x1="40" y1="180" x2="360" y2="180" stroke="#c3c2b7" stroke-width="1"/>
+              <line x1="40" y1="140" x2="360" y2="140" stroke="#e1e0d9" stroke-width="1" stroke-dasharray="2,3"/>
+              <line x1="40" y1="100" x2="360" y2="100" stroke="#e1e0d9" stroke-width="1" stroke-dasharray="2,3"/>
+              <line x1="40" y1="60"  x2="360" y2="60"  stroke="#e1e0d9" stroke-width="1" stroke-dasharray="2,3"/>
+              <line x1="40" y1="20"  x2="360" y2="20"  stroke="#e1e0d9" stroke-width="1" stroke-dasharray="2,3"/>
+              <text x="34" y="183" font-size="10" fill="#6e7175" text-anchor="end" font-family="-apple-system,Segoe UI,sans-serif">0</text>
+              <text x="34" y="143" font-size="10" fill="#6e7175" text-anchor="end" font-family="-apple-system,Segoe UI,sans-serif">25</text>
+              <text x="34" y="103" font-size="10" fill="#6e7175" text-anchor="end" font-family="-apple-system,Segoe UI,sans-serif">50</text>
+              <text x="34" y="63"  font-size="10" fill="#6e7175" text-anchor="end" font-family="-apple-system,Segoe UI,sans-serif">75</text>
+              <text x="34" y="23"  font-size="10" fill="#6e7175" text-anchor="end" font-family="-apple-system,Segoe UI,sans-serif">100%</text>
+
+              <rect x="95"  y="76"  width="40" height="104" rx="3" fill="#5b4fe8"/>
+              <text x="115" y="68" font-size="11" font-weight="700" fill="#2b2b2f" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">65%</text>
+              <rect x="145" y="172" width="40" height="8" rx="2" fill="#8a89a0"/>
+              <text x="165" y="166" font-size="11" font-weight="700" fill="#2b2b2f" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">5.1%</text>
+
+              <rect x="255" y="28"  width="40" height="152" rx="3" fill="#5b4fe8"/>
+              <text x="275" y="20" font-size="11" font-weight="700" fill="#2b2b2f" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">95%</text>
+              <rect x="305" y="117" width="40" height="63" rx="3" fill="#8a89a0"/>
+              <text x="325" y="109" font-size="11" font-weight="700" fill="#2b2b2f" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">39.2%</text>
+
+              <text x="120" y="200" font-size="12" fill="#494e52" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">lncRNA</text>
+              <text x="280" y="200" font-size="12" fill="#494e52" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">miRNA</text>
+            </svg>
+            <div class="chart-legend">
+              <span><i style="background:#5b4fe8;"></i>Tier-1 shortlist</span>
+              <span><i style="background:#8a89a0;"></i>Full candidate pool</span>
+            </div>
+            <figcaption>Fig. 2 &mdash; Fisher's exact test: lncRNA OR = 35.1, p = 8.0×10&#8315;&sup1;&sup3;
+              (13/20 vs 862/16,901); miRNA OR = 30.2, p = 2.1×10&#8315;&#8311; (19/20 vs 738/1,881).</figcaption>
+          </figure>
+
+          <h3>The association signal is prospective, not memorized</h3>
+          <p>
+            A random train/test split lets a classifier look predictive by
+            memorizing labels that leak across the split. The association
+            model was instead retrained on associations reported before a
+            cutoff year and evaluated only on ones reported after it &mdash;
+            a genuine prospective test. The average-precision advantage of
+            the full model over an intrinsic-feature-only baseline holds for
+            both modalities; the top-k recall advantage holds for miRNA
+            only. The lncRNA recall numbers from random cross-validation
+            don't survive this test, so they're scoped out of the results
+            above rather than reported at their inflated magnitude.
+          </p>
+
+          <figure class="figure">
+            <svg viewBox="0 0 500 140" role="img" aria-labelledby="fig3title fig3desc">
+              <title id="fig3title">Temporal-split AP signal vs. repeat-to-repeat noise floor</title>
+              <desc id="fig3desc">lncRNA AP advantage survives at 13.4x the noise floor; miRNA at 25.0x.</desc>
+              <line x1="110" y1="10" x2="110" y2="120" stroke="#c3c2b7" stroke-width="1"/>
+              <line x1="122.9" y1="10" x2="122.9" y2="120" stroke="#898781" stroke-width="1" stroke-dasharray="3,3"/>
+              <text x="127" y="16" font-size="10" fill="#6e7175" font-family="-apple-system,Segoe UI,sans-serif">1× = noise floor</text>
+
+              <text x="8" y="39" font-size="13" font-weight="600" fill="#2b2b2f" font-family="-apple-system,Segoe UI,sans-serif">lncRNA</text>
+              <rect x="110" y="20" width="172" height="30" rx="3" fill="#17b4d1"/>
+              <text x="196" y="39" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">13.4×</text>
+
+              <text x="8" y="95" font-size="13" font-weight="600" fill="#2b2b2f" font-family="-apple-system,Segoe UI,sans-serif">miRNA</text>
+              <rect x="110" y="76" width="321" height="30" rx="3" fill="#17b4d1"/>
+              <text x="271" y="95" font-size="14" font-weight="700" fill="#fff" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">25.0×</text>
+
+              <line x1="110" y1="120" x2="470" y2="120" stroke="#c3c2b7" stroke-width="1"/>
+              <text x="110" y="132" font-size="10" fill="#6e7175" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">0</text>
+              <text x="238.6" y="132" font-size="10" fill="#6e7175" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">10</text>
+              <text x="367.1" y="132" font-size="10" fill="#6e7175" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif">20</text>
+            </svg>
+            <figcaption>Fig. 3 &mdash; Average-precision advantage of the full feature set over an
+              intrinsic-feature-only baseline, measured in multiples of repeat-to-repeat noise
+              under a temporal (not random) train/test split. lncRNA cutoff 2016 (146 train / 125
+              test positives); miRNA cutoff 2018 (22 train / 78 test positives).</figcaption>
+          </figure>
+
+          <h2 id="decisions">A few decisions that shaped the result</h2>
+
+          <h3>Quarantining dbDEMC as a label source</h3>
+          <p>
+            dbDEMC is a large, commonly used source of "cancer miRNA" labels.
+            It was excluded after auditing what its evidence actually is:
+            mostly differential-expression and biomarker-profiling studies
+            &mdash; the same category of signal already sitting in the model
+            as a Tier-2 feature. Training on it would mean the label is, in
+            part, a re-derivation of a feature the model can see, which
+            inflates apparent performance without adding information. The
+            same audit was then applied to HMDD, which turned out to have the
+            identical failure mode buried in two of its own evidence codes
+            (<code>tissue_expression_*</code>, <code>circulation_biomarker_*</code>).
+            Restricting labels to causal/functional evidence only (knockdown
+            or overexpression assays, GWAS, therapeutic-target studies) drops
+            the miRNA positive count from a few thousand to a defensible 96
+            strict-LUAD / 365 lung-broad &mdash; comparable in scale to
+            lncRNA's own 100/271 from Lnc2Cancer, and free of the circularity.
+          </p>
+
+          <h3>Different CLIP-evidence floors for different target types</h3>
+          <p>
+            CLIP-seq support for miRNA&ndash;mRNA binding is dense enough that
+            a floor of 10 independent experiments is a reasonable bar for
+            "real" evidence. Applying that same floor to miRNA&ndash;lncRNA
+            edges was not a neutral choice: lncRNA CLIP coverage is far
+            sparser, and a connectivity audit found the shared
+            10-experiment floor was starving the lncRNA layer of the graph
+            &mdash; leaving most lncRNAs with too few edges for the mechanism
+            layer to say anything about them. The lncRNA floor was relaxed to
+            any CLIP support at all (&ge;1 experiment), with the old
+            10-experiment bar repurposed as an internal strong/weak split
+            rather than an inclusion cutoff. The two edge types now have
+            deliberately different thresholds instead of one shared,
+            silently miscalibrated one.
+          </p>
+
+          <h3>Why the mechanism layer isn't an end-to-end GNN</h3>
+          <p>
+            The same connectivity audit showed the lncRNA side of the graph
+            is sparse with a long tail: most lncRNAs have very few edges, and
+            a handful of hub genes (MALAT1, NEAT1, H19-style transcripts)
+            dominate connectivity. Message-passing has nothing to aggregate
+            for a typical node under those conditions, so the mechanism layer
+            is a hybrid instead: per-gene ceRNA/co-expression dossiers plus
+            node2vec embeddings, rather than a single graph neural network
+            expected to generalize evenly across a graph that isn't uniform
+            enough for that to work. A related bug this surfaced: NEAT1-style
+            hub lncRNAs sponge hundreds of miRNAs, each targeting up to ~3,900
+            mRNAs, which balloons a naive "shared target" neighborhood to
+            65&ndash;75% of the entire mRNA universe &mdash; at that size,
+            pathway enrichment is guaranteed to surface generic terms
+            ("Gene Expression (Transcription)", "Disease") regardless of real
+            biology. A first fix (require &ge;2 sponged miRNAs to converge on
+            a target) barely helped, since with hundreds of miRNAs even
+            2-way convergence is satisfied combinatorially across most of the
+            transcriptome. The dossiers now flag generic-top-pathway-term
+            saturation automatically on every run instead of relying on
+            catching it by eye.
+          </p>
+
+          <div class="notice">
+            <strong>Where an exclusion rule cut the wrong way &mdash; the MIR9-1HG case.</strong>
+            MIR9-1HG, ranked 4th without label supervision, hosts the miR-9-1
+            precursor. Its assigned ceRNA-sponge mechanism deliberately
+            excluded the miR-9 family from consideration, on the grounds that
+            a host transcript's pri-miRNA region can spuriously self-match its
+            own mature miRNA's binding motif in CLIP data. Besta et al.
+            (<a href="https://www.nature.com/articles/s41420-026-03195-8" target="_blank" rel="noopener"><em>Cell Death Discovery</em>, 2026</a>)
+            then independently confirmed miR-9-5p as an oncogenic LUAD driver
+            acting through loss of E-cadherin and Akt1/Wnt/&beta;-catenin
+            signaling, reporting the highest tumor-vs-normal upregulation of
+            miR-9-5p among all cancer types analyzed in TCGA: exactly the
+            host-gene/mature-miRNA relationship the pipeline had excluded as
+            a probable artifact. The rule wasn't
+            wrong in general; in this one case it discarded the real signal.
+            The pipeline's mechanism assignments are reported as hypotheses
+            to test, not conclusions.
+          </div>
+
+        </section>
+        <footer class="page__footer">&copy; 2026 Shaun Deshpande</footer>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
